@@ -3,6 +3,7 @@ package learn_spring_boot.demo.controller;
 import learn_spring_boot.demo.entity.DataActualEntity;
 import learn_spring_boot.demo.response.ResponseEntity;
 import learn_spring_boot.demo.service.DataActualService;
+import learn_spring_boot.demo.service.DataPredictService;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
@@ -27,6 +28,12 @@ public class DataActualController {
     @Autowired
     private DataActualService dataActualService;
 
+    @Autowired
+    private DataPredictService dataPredictService;
+
+    @Autowired
+    Factory factory;
+
     @RequestMapping(value = "/get/all", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity getAll(){
@@ -41,6 +48,14 @@ public class DataActualController {
         Timestamp endDate = Timestamp.valueOf(end);
         List<DataActualEntity> dataActualEntities = dataActualService.findByMetricAndTsRange(metric, beginDate, endDate);
         return new ResponseEntity(dataActualEntities);
+    }
+
+    @RequestMapping(value = "/submit", method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity submitTask(){
+        TrainingTask trainingTask = new TrainingTask(dataActualService, dataPredictService);
+        factory.submit(trainingTask);
+        return new ResponseEntity();
     }
 
 }

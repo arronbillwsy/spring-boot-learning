@@ -103,6 +103,41 @@ public class DataActualEntity {
         this.insertTime = insertTime;
     }
 
+    public DataActualEntity() {
+    }
+
+    public DataActualEntity(long id,
+            String dataSource,
+            String uid,
+            String metric,
+            String name,
+            Double value,
+            Timestamp ts,
+            Timestamp insertTime) {
+        this.id = id;
+        this.dataSource = dataSource;
+        this.uid = uid;
+        this.metric = metric;
+        this.name = name;
+        this.value = value;
+        this.ts = ts;
+        this.insertTime = insertTime;
+    }
+
+    @Override
+    public String toString() {
+        return "DataActualEntity{" +
+                "id=" + id +
+                ", dataSource='" + dataSource + '\'' +
+                ", uid='" + uid + '\'' +
+                ", metric='" + metric + '\'' +
+                ", name='" + name + '\'' +
+                ", value=" + value +
+                ", ts=" + ts +
+                ", insertTime=" + insertTime +
+                '}';
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
