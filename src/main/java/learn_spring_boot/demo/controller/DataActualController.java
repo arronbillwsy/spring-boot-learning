@@ -43,7 +43,9 @@ public class DataActualController {
 
     @RequestMapping(value = "/get/range", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity getByMetricAndTs(@RequestParam String metric, String begin, String end){
+    public ResponseEntity getByMetricAndTs(@RequestParam(required = true, name = "metric") String metric,
+                                           @RequestParam(required = true, name = "begin") String begin,
+                                           @RequestParam(required = true, name = "end") String end){
         Timestamp beginDate = Timestamp.valueOf(begin);
         Timestamp endDate = Timestamp.valueOf(end);
         List<DataActualEntity> dataActualEntities = dataActualService.findByMetricAndTsRange(metric, beginDate, endDate);

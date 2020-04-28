@@ -35,13 +35,19 @@ public class ResponseEntity<T> {
         this.data = data;
     }
 
+    public ResponseEntity(boolean success, String msg, T data) {
+        this.success = success;
+        this.msg = msg;
+        this.data = data;
+    }
+
     public ResponseEntity(T data){
         this.data = data;
     }
 
     public ResponseEntity(boolean success, String msg) {
-        this.msg = msg;
         this.success = success;
+        this.msg = msg;
     }
 
 
