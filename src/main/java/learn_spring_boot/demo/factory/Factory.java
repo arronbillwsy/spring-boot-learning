@@ -1,4 +1,4 @@
-package learn_spring_boot.demo.controller;
+package learn_spring_boot.demo.factory;
 
 
 import org.springframework.stereotype.Component;

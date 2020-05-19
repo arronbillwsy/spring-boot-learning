@@ -1,11 +1,11 @@
 package learn_spring_boot.demo.controller;
 
 import learn_spring_boot.demo.entity.DataActualEntity;
+import learn_spring_boot.demo.factory.Factory;
+import learn_spring_boot.demo.factory.TrainingTask;
 import learn_spring_boot.demo.response.ResponseEntity;
 import learn_spring_boot.demo.service.DataActualService;
 import learn_spring_boot.demo.service.DataPredictService;
-import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
